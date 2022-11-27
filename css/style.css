@@ -1,0 +1,24 @@
+
+/* Import fonts from fonts.css file */
+@import url(./fonts.css);
+
+/* CSS variables */
+@import url(./partials/_variables.css);
+
+/* Start navigation */
+.header_area .main-menu .navbar .navbar-brand {
+    padding: 0 2rem 0 5rem;
+}
+/* Stop video at 32:42 */
+
+.header_area .main-menu .navbar {
+    padding: 1rem 20rem;
+}
+.header_area .main-menu .nav-item .nav-link {
+    font-family: var(--lato);
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 1.7rem;
+    color: var(--title-color);
+}
+/* End navigation */
