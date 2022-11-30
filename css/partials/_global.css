@@ -1,0 +1,34 @@
+.text {
+    font: normal bold 50px/72px var(--lato);
+}
+.text-uppercase {
+    text-transform: uppercase;
+}
+.button {
+    padding: .8rem 2.2rem;
+    font: normal bold 500 16px/20px var(--lato);
+    position: relative;
+    border: 3px solid transparent;
+    border-radius: 4px;
+}
+.button.primary-button {
+    background: var(--gradient-color);
+    background-clip: padding-box;
+    color: whitesmoke;
+    transition: background .6s ease;
+    box-shadow: var(--box-shadow);
+}
+.button.button.primary-button:hover {
+    background: whitesmoke;
+    background-clip: padding-box;
+    color: black;
+}
+.button.primary-button::after {
+    position: absolute;
+    top: -2px; left: -2px;
+    bottom: -2px; right: -2px;
+    background: var(--gradient-color);
+    content: '';
+    z-index: -1;
+    border-radius: 4px;
+}

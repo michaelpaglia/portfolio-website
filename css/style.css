@@ -5,20 +5,67 @@
 /* CSS variables */
 @import url(./partials/_variables.css);
 
+/* Global */
+@import url(./partials/_global.css);
+
 /* Start navigation */
 .header_area .main-menu .navbar .navbar-brand {
     padding: 0 2rem 0 5rem;
 }
-/* Stop video at 32:42 */
+/* Stop video at 48:25 */
 
 .header_area .main-menu .navbar {
     padding: 1rem 20rem;
 }
 .header_area .main-menu .nav-item .nav-link {
-    font-family: var(--lato);
+    font: normal 500 15px/2px var(--lato);
     text-transform: uppercase;
-    font-weight: 500;
     padding: 1.7rem;
     color: var(--title-color);
 }
+.header_area .main-menu .navbar-nav a:active {
+    background: var(--gradient-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.header_area .main-menu .navbar-nav a:hover {
+    background: var(--gradient-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
 /* End navigation */
+/* Banner Area */
+.site-main .site-banner {
+    /* Left hand side image */
+    background: url(/images/more\ dots\ better.png) no-repeat;
+    background-position: 20% 80%;
+}
+.site-main .site-banner .site-title h3 {
+    padding-top: 35%;
+    font-weight: 500;
+}
+.site-main .site-banner .site-title h3::after {
+    content: " ";
+    height: 2px;
+    width: 18vw;
+    background: black;
+    display: inline-block;
+    margin-left: 5%;
+    transform: translateY(-10px);
+}
+.site-main .site-banner .site-title h1 {
+    font-size: 5rem;
+}
+.site-main .site-banner .site-title h4 {
+    font-size: 1.5rem;
+}
+.site-main .site-banner .headshot-img > img {
+    padding: 7rem 0;
+    width: 90rem;
+}
+.text {
+    font: normal bold 50px/72px var(--lato);
+}
+/* End Banner Area */
