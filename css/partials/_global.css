@@ -5,10 +5,10 @@
     text-transform: uppercase;
 }
 .button {
-    padding: .8rem 2.2rem;
+    padding: 1rem 2.2rem;
     font: normal bold 500 16px/20px var(--lato);
     position: relative;
-    border: 3px solid transparent;
+    border: 1px solid transparent;
     border-radius: 4px;
 }
 .button.primary-button {
@@ -23,7 +23,7 @@
     background-clip: padding-box;
     color: black;
 }
-.button.primary-button::after {
+.button.primary-button::after, .button.button.secondary-button::after {
     position: absolute;
     top: -2px; left: -2px;
     bottom: -2px; right: -2px;
@@ -31,4 +31,19 @@
     content: '';
     z-index: -1;
     border-radius: 4px;
+}
+.button.secondary-button {
+    background: white;
+    background-clip: padding-box;
+    transition: background .6s ease;
+}
+.button.button.secondary-button:hover {
+    background: var(--gradient-color);
+    color: whitesmoke;
+    box-shadow: var(--box-shadow);
+}
+p.para {
+    color: var(--text-color);
+    font: normal 500 16/25px var(--lato);
+    line-height: 2;
 }
