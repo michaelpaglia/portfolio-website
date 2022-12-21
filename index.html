@@ -9,6 +9,8 @@
     <link rel="stylesheet" href = "./css/bootstrap.min.css">
     <!-- FontAwesome icons -->
     <link rel="stylesheet" href = "css/all.min.css">
+    <!-- Magnific Popup CSS -->
+    <link rel="stylesheet" href = "/vendor/Magnific-Popup-master/dist/magnific-popup.css">
     <!-- Custom CSS file -->
     <link rel="stylesheet" href = "./css/style.css">
 </head>
@@ -33,7 +35,7 @@
                         <a class="nav-link" href="#">About</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
+                        <a class="nav-link" href="#">Skills</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="#">Portfolio</a>
@@ -91,8 +93,7 @@
 
             <div class="col-lg-6 col-md-12 about-title">
               <h2 class="text-uppercase">
-                <span>To introduce</span>
-                <span>Myself......</span>
+                <span>About Me. . .</span>
               </h2>
               <div class="paragraph.py-4.w-75">
                 <p class="para">
@@ -199,6 +200,65 @@
         </div>
       </section>
       <!-- END BRAND AREA -->
+
+      <!-- PROJECT AREA -->
+      <section class="project-area">
+        <div class="container">
+          <div class="project-title-pb-5">
+            <h1 class="text-uppercase title-h1">Recently Done Projects</h1>
+            <h1 class="text-uppercase title-h1">My Work 🖥️</h1>
+          </div>
+
+          <div class="button-group">
+            <button type="button" data-filter="*" class="active" id="btn1">All</button>
+            <button type="button" data-filter=".latest">Latest</button>
+            <button type="button" data-filter=".academia">Academia</button>
+            <button type="button" data-filter=".personal">Personal</button>
+          </div>
+
+          <div class="row grid">
+            <div class="col-lg-4 col-md-6 col-sm-12 element-item latest academia">
+              <div class="our-project">
+                <div class="img">
+                  <a class="test-popup-link" href="/images/interpreter.png">
+                    <img src="/images/interpreter.png" width="400" height=auto alt="portfolio-1">
+                  </a>
+                </div>
+                <div class="title py-4">
+                  <h4 class="text-uppercase">Interpreter</h4>
+                  <span class="text-secondary">Latest, Academia</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 element-item latest academia">
+              <div class="our-project">
+                <div class="img">
+                  <a class="test-popup-link" href="/images/stack.png">
+                    <img src="/images/stack.png" width="400" height=auto alt="portfolio-2">
+                  </a>
+                </div>
+                <div class="title py-4">
+                  <h4 class="text-uppercase">Stack Instrumentation</h4>
+                  <span class="text-secondary">Latest, Academia</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 element-item personal">
+              <div class="our-project">
+                <div class="img">
+                  <a class="test-popup-link" href="/images/website.PNG">
+                    <img src="/images/website.PNG" width="400" height=auto alt="portfolio-3">
+                  </a>
+                </div>
+                <div class="title py-4">
+                  <h4 class="text-uppercase">Website</h4>
+                  <span class="text-secondary">Personal</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <!-- END MAIN AREA -->
 
@@ -207,5 +267,11 @@
     <script src="./js_files/jquery.js"></script>
     <!-- Bootstrap JS file -->
     <script src="./js_files/bootstrap.min.js"></script>
+    <!-- Isotope JS library -->
+    <script src="/vendor/isotope/isotope.min.js"></script>
+    <!-- Magnific Popup Script File -->
+    <script src="vendor/Magnific-Popup-master/dist/jquery.magnific-popup.min.js"></script>
+    <!-- Custom JS file -->
+    <script src="/js_files/main.js"></script>
 </body>
 </html>
