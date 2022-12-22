@@ -42,6 +42,9 @@
     /* background: url(/images/more\ dots\ better.png) no-repeat; */
     background-position: 20% 100%;
 }
+.site-main .site-banner .headshot-img img {
+    /* border-radius: 100px; For rounded images */
+}
 .site-main .site-banner .site-title h3 {
     padding-top: 35%;
     font-weight: 500;
@@ -73,6 +76,9 @@
 /* Start About Me Area */
 .site-main .about-area {
     padding: 2rem 14rem;
+}
+.site-main .about-area .about-image img {
+    /* border-radius: 100px; For rounded images */
 }
 .site-main .about-area .about-title h2 > span {
     display: block;
@@ -162,8 +168,12 @@
 .site-main .project-area .button-group button + button {
     padding-left: 3rem;
 }
-
 .site-main .project-area .grid .our-project .img a:hover img {
     filter: brightness(1.15) drop-shadow(1px 8px 30px #b1afaf);
+}
+.site-main .project-area .grid .our-project .img img {
+    width: 420px;
+    aspect-ratio: 3/2;
+    object-fit: contain;
 }
 /* End Project Area */
