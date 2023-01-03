@@ -177,3 +177,54 @@
     object-fit: contain;
 }
 /* End Project Area */
+
+/* Subscribe area */
+.site-main .subscribe-us-area .subscribe {
+    background: url(/images/banner.jpg) no-repeat;
+    padding: 8rem 0;
+    margin: 3rem auto;
+}
+.site-main .subscribe-us-area .subscribe .subscribe-title h4 {
+    font: normal 700 35px/30px var(--lato);
+    color: whitesmoke;
+}
+.site-main .subscribe-us-area .subscribe .subscribe-title p {
+    color: whitesmoke;
+    padding: 0rem 4rem;
+}
+.site-main .subscribe-us-area .subscribe form .input-textbox input {
+    width: 400px;
+    padding: 0.7rem 1rem;
+    border: 1px solid whitesmoke;
+    background: transparent;
+    color: white;
+    font: normal 500 17px/20px var(--lato);
+}
+.site-main .subscribe-us-area .subscribe form .input-textbox input::placeholder {
+    color: whitesmoke;
+}
+.site-main .subscribe-us-area .subscribe form .btn-submit button {
+    background: whitesmoke;
+    color: black;
+    padding: .7rem 2rem;
+}
+/* End subscribe area */
+
+/* Footer */
+footer.footer-area {
+    padding: 5rem 0;
+    background: url(/images/footer-bg.png) no-repeat;
+
+}
+footer.footer-area .social h5 {
+    font: normal 500 23px/30px var(--lato);
+}
+footer.footer-area .social a > l {
+    font-size: 22px;
+    padding: 2rem;
+    color: grey;
+}
+footer.footer-area .social a:hover > l {
+    color: var(--primary-color)
+}
+/* End Footer */
