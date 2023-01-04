@@ -19,4 +19,21 @@ $(document).ready(function() {
     gallery: { enabled: true }
     });
     
+
+    // Sticky navigation
+    let nav_offset_top = $('.header_area').height() + 50;
+    function navFixed() {
+        if($('.header_area').length) {
+            $(window).scroll(function() {
+                let scroll = $(window).scrollTop();
+                if(scroll >= nav_offset_top) {
+                    $('.header_area .main-menu').addClass('navFixed');
+                } else {
+                    $('.header_area .main-menu').removeClass('navFixed');
+                }
+            })
+        }
+    }
+
+    navFixed();
 });
