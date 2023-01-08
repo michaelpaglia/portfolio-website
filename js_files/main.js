@@ -19,7 +19,6 @@ $(document).ready(function() {
     gallery: { enabled: true }
     });
     
-
     // Sticky navigation
     let nav_offset_top = $('.header_area').height() + 50;
     function navFixed() {
