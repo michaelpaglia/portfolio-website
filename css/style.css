@@ -18,7 +18,7 @@
     padding: 1rem 20rem;
 }
 .header_area .main-menu .nav-item .nav-link {
-    font: normal 500 15px/2px var(--lato);
+    font: normal bold 500 15px/2px var(--lato);
     text-transform: uppercase;
     padding: 1.7rem;
     color: var(--title-color);
@@ -184,8 +184,8 @@
     padding: 8rem 0;
     margin: 3rem auto;
 }
-.site-main .subscribe-us-area .subscribe .subscribe-title h4 {
-    font: normal 700 35px/30px var(--lato);
+.site-main .subscribe-us-area .subscribe .subscribe-title {
+    font: normal bold 700 35px/30px var(--lato);
     color: whitesmoke;
 }
 .site-main .subscribe-us-area .subscribe .subscribe-title p {
@@ -216,8 +216,8 @@ footer.footer-area {
     background: url(/images/footer-bg.png) no-repeat;
 
 }
-footer.footer-area .social h5 {
-    font: normal 500 23px/30px var(--lato);
+footer.footer-area .social {
+    font: normal bold 500 23px/30px var(--lato);
 }
 footer.footer-area .social a > l {
     font-size: 22px;

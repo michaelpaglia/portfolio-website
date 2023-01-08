@@ -33,7 +33,7 @@
         padding-left: 3%;
     }
     .site-main .project-area .button-group button {
-        font: normal 500 18px/40px var(--lato);
+        font: normal bold 500 18px/40px var(--lato);
     }
     .site-main .about-area .about-title p {
         padding: 0%;
