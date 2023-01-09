@@ -208,6 +208,26 @@
     color: black;
     padding: .7rem 2rem;
 }
+.site-main .subscribe-us-area .subscribe form #mce-success-response  {
+    background: var(--gradient-color);
+    padding: 10px;
+    text-align: center;
+    color: whitesmoke;
+    font: normal bold var(--lato);
+    border-radius: 12px;
+    transition: 1s;
+    animation: response 1s forwards;
+}
+.site-main .subscribe-us-area .subscribe form #mce-error-response  {
+    background: grey;
+    padding: 10px;
+    text-align: center;
+    color: whitesmoke;
+    font: normal bold var(--lato);
+    border-radius: 12px;
+    transition: 1s;
+    animation: response 1s forwards;
+}
 /* End subscribe area */
 
 /* Footer */
