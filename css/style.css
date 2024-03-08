@@ -12,8 +12,6 @@
 .header_area .main-menu .navbar .navbar-brand {
     padding: 0 2rem 0 5rem;
 }
-/* Stop video at 48:25 */
-
 .header_area .main-menu .navbar {
     padding: 1rem 20rem;
 }
@@ -44,6 +42,7 @@
 }
 .site-main .site-banner .headshot-img img {
     /* border-radius: 100px; For rounded images */
+    width: 5%;
 }
 .site-main .site-banner .site-title h3 {
     padding-top: 35%;
@@ -79,10 +78,14 @@
 }
 .site-main .about-area .about-image img {
     /* border-radius: 100px; For rounded images */
+    width: 75%;
+    height: auto;
+    margin-left: 60px;
 }
 .site-main .about-area .about-title h2 > span {
     display: block;
-    font: normal bold 49px/60px var(--lato);
+    font-weight: 500;
+    font: normal 50px/72px var(--lato);
     letter-spacing: 28px;
 }
 .site-main .about-area .about-title .paragraph > p {
@@ -135,7 +138,7 @@
 }
 .site-main .brand-area .experience-area .bg-panel {
     position: absolute;
-    left: 650px;top: 230%;
+    left: 450px;top: 300%;
     background: #e029290a;
     width: 400px;
     height: 400px;
@@ -150,9 +153,46 @@
 .site-main .brand-area .experience-area .years-area h2 > span {
     font: normal bold 600 22px/30px var(--lato);
 }
-.site-main .brand-area .experience-area .email-area {
-    padding-left: 10rem;
-}  
+.email-area {
+    display: flex;
+    align-items: center;
+    font: normal bold 20/40px var(--lato);
+    color: black; 
+    background-color: #f2f2f2; 
+    padding: 10px;
+    border-radius: 5px;
+}
+  
+.email-icon {
+    font-size: 1.5em;
+    margin-right: 10px;
+    color: var(--primary-color2); /* Replace with your preferred icon color */
+}
+  
+.email-content {
+    display: flex;
+    flex-direction: column;
+}
+  
+.email-link {
+    text-decoration: none;
+    color: var(--primary-color); /* Replace with your preferred link color */
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+  
+.email-address {
+    font-size: 1em;
+}
+  
+/* Responsive Design */
+@media (max-width: 600px) {
+    .email-area {
+      flex-direction: column;
+      align-items: start;
+    }
+}
 /* End Brand Area */
 
 /* Project Area */
