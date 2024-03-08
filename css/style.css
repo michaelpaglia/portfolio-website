@@ -159,22 +159,56 @@
 .site-main .project-area {
     padding: 4rem 0;
 }
+
 .site-main .project-area .button-group button {
     background: transparent;
     border: none;
     font: normal bold 500 16px/130px var(--lato);
     text-transform: uppercase;
+    cursor: pointer; /* Added for better UX */
 }
+
 .site-main .project-area .button-group button + button {
-    padding-left: 3rem;
+    margin-left: 3rem; /* Adjusted for button spacing */
 }
-.site-main .project-area .grid .our-project .img a:hover img {
-    filter: brightness(1.15) drop-shadow(1px 8px 30px #b1afaf);
+
+/* Style adjustments for list-group to maintain the aesthetics */
+.site-main .project-area .list-group-item {
+    border: none; /* Removing default list-group border */
+    padding: 2rem; /* Providing some padding for spacing */
+    margin-bottom: 1rem; /* Spacing between list items */
+    background-color: #f7f7f7; /* Light background for each item */
+    border-radius: 5px; /* Optional: Adding some border-radius for rounded corners */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Adding a subtle shadow for depth */
 }
-.site-main .project-area .grid .our-project .img img {
-    width: 420px;
-    aspect-ratio: 3/2;
-    object-fit: contain;
+
+.site-main .project-area .list-group-item h4 {
+    margin-bottom: 1rem; /* Spacing between title and description */
+}
+
+.site-main .project-area .list-group-item p {
+    font-size: 1rem; /* Adjusting font size for description */
+    margin-bottom: 1rem; /* Spacing between description and link */
+}
+
+.site-main .project-area .list-group-item a {
+    font-weight: 500; /* Making the link slightly bolder */
+    color: #007bff; /* Adjusting color for visibility, feel free to change */
+    text-decoration: none; /* Removing underline from links */
+}
+
+.site-main .project-area .list-group-item .badge {
+    margin-right: 0.5rem; /* Spacing between badges */
+    font-size: 0.8rem; /* Adjusting badge font size */
+}
+
+.site-main .project-area .list-group-item:hover {
+    background-color: #eff0f1; /* Slightly changing background on hover for interactive feel */
+}
+
+/* If you're using any hover effects on links */
+.site-main .project-area .list-group-item a:hover {
+    text-decoration: underline; /* Adding underline on hover for links */
 }
 /* End Project Area */
 
