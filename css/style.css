@@ -90,7 +90,17 @@
 .site-main .about-area .about-title .paragraph > p {
     padding: 4rem 0px;
 }
+.site-main .about-area .about-title {
+    padding-top: 2rem; /* For mobile devices */
+}
+.site-main .about-area .about-title .center-button {
+    display: block; /* Center the resume button */
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
 /* End About Me Area */
+
 /* Start Brand Area */
 .site-main .brand-area {
     padding: 1rem 20rem;
