@@ -2,281 +2,974 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michael Paglia</title>
-    <!-- Bootstrap CSS file -->
-    <link rel="stylesheet" href = "./css/bootstrap.min.css">
-    <!-- FontAwesome icons -->
-    <link rel="stylesheet" href = "css/all.min.css">
-    <!-- Magnific Popup CSS -->
-    <link rel="stylesheet" href = "/vendor/Magnific-Popup-master/dist/magnific-popup.css">
-    <!-- Custom CSS file -->
-    <link rel="stylesheet" href = "./css/style.css">
-    <!-- Responsive CSS -->
-    <link rel="stylesheet" href="/css/responsive.css">
+    <title>Michael Paglia | Developer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #4f86f7;
+            --dark: #121212;
+            --darker: #0a0a0a;
+            --light: #f8f8f8;
+            --gray: #888;
+            --gray-dark: #6c6c6c;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            opacity: 0.8;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+        
+        header.scrolled {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            background-color: rgba(10, 10, 10, 0.98);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--light);
+            font-weight: 500;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            bottom: -5px;
+            left: 0;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after, .nav-links a.active::after {
+            width: 100%;
+        }
+        
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--light);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .hero-text {
+            flex: 1;
+        }
+        
+        .hero-text h4 {
+            text-transform: uppercase;
+            color: var(--primary);
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            opacity: 1; /* Changed from 0 to make visible immediately */
+            animation: fadeInUp 0.8s forwards;
+            animation-delay: 0.2s;
+        }
+        
+        .hero-text h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            opacity: 1; /* Changed from 0 to make visible immediately */
+            animation: fadeInUp 0.8s forwards;
+            animation-delay: 0.4s;
+        }
+        
+        .hero-text p {
+            margin-bottom: 30px;
+            color: var(--gray);
+            max-width: 500px;
+            opacity: 1; /* Changed from 0 to make visible immediately */
+            animation: fadeInUp 0.8s forwards;
+            animation-delay: 0.6s;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: var(--transition);
+            opacity: 1; /* Changed from 0 to make visible immediately */
+            animation: fadeInUp 0.8s forwards;
+            animation-delay: 0.8s;
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(45, 70, 185, 0.3);
+            opacity: 1;
+        }
+        
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .profile-img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 20px 30px rgba(0,0,0,0.3);
+            opacity: 1;
+            animation: fadeIn 1s forwards, glowPulse 3s infinite ease-in-out;
+            animation-delay: 1s, 2s;
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+        
+        @keyframes glowPulse {
+            0%, 100% {
+                box-shadow: 0 20px 30px rgba(0,0,0,0.3), 0 0 0px rgba(255, 255, 255, 0);
+            }
+            50% {
+                box-shadow: 0 20px 30px rgba(0,0,0,0.3), 0 0 30px rgba(255, 255, 255, 0.7);
+            }
+        }
+        
+        @keyframes drawSpiral {
+            0% {
+                stroke-dashoffset: 2000;
+            }
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
+        
+        @keyframes glowEffect {
+            0% {
+                filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.7));
+            }
+            100% {
+                filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.9));
+            }
+        }
+        }
+        
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0; }
+            20%, 80% { opacity: 1; }
+        }
+        
+        /* About Section */
+        .about {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            display: inline-block;
+            position: relative;
+            margin-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 3px;
+            background-color: var(--primary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .about-content {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 30px rgba(0,0,0,0.3);
+            transform: translateY(0); /* Changed from translateY(50px) */
+            opacity: 1; /* Changed from 0 */
+            transition: var(--transition);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+        
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+        
+        .about-text {
+            flex: 1;
+            transform: translateY(0); /* Changed from translateY(50px) */
+            opacity: 1; /* Changed from 0 */
+            transition: var(--transition);
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--light);
+        }
+        
+        .skills {
+            margin-top: 30px;
+        }
+        
+        .skills h3 {
+            margin-bottom: 15px;
+            color: var(--light);
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px;
+        }
+        
+        .skill-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: var(--transition);
+        }
+        
+        .skill-icon:hover {
+            transform: translateY(-5px);
+        }
+        
+        .skill-icon img {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 5px;
+        }
+        
+        .skill-icon span {
+            font-size: 0.8rem;
+            text-align: center;
+            color: var(--light);
+        }
+        
+        /* Projects Section */
+        .projects {
+            padding: 100px 0;
+            background-color: #0d0d0d;
+        }
+        
+        .project-filters {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            gap: 15px;
+        }
+        
+        .filter-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 500;
+            transition: var(--transition);
+            font-family: 'Poppins', sans-serif;
+            color: var(--light);
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            transition: var(--transition);
+            transform: translateY(0); /* Changed from translateY(50px) */
+            opacity: 1; /* Changed from 0 */
+            display: block; /* Ensure visibility */
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+        
+        .project-content {
+            padding: 20px;
+        }
+        
+        .project-content h4 {
+            margin-bottom: 10px;
+            color: var(--light);
+        }
+        
+        .project-content p {
+            color: var(--gray);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .project-links a {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .project-tags {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .project-tag {
+            font-size: 0.7rem;
+            background-color: #2a2a2a;
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 15px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+        }
+        
+        .contact-content {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 1;
+            transform: translateY(0); /* Changed from translateY(50px) */
+            opacity: 1; /* Changed from 0 */
+            transition: var(--transition);
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 20px;
+            color: var(--light);
+        }
+        
+        .contact-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+        
+        .contact-icon {
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+        
+        .contact-details h4 {
+            margin-bottom: 5px;
+            color: var(--light);
+        }
+        
+        .contact-details p {
+            color: var(--gray);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background-color: #2a2a2a;
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        /* Footer */
+        footer {
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid #222;
+            background-color: var(--darker);
+        }
+        
+        .footer-text {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes floatAnimation {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+        
+        @keyframes glowPulse {
+            0%, 100% {
+                box-shadow: 0 0 15px rgba(255,255,255,0.3);
+            }
+            50% {
+                box-shadow: 0 0 25px rgba(255,255,255,0.6);
+            }
+        }
+        
+        /* Media Queries */
+        @media (max-width: 992px) {
+            .hero-content, .about-content, .contact-content {
+                flex-direction: column;
+            }
+            
+            .hero-image {
+                margin-top: 50px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--darker);
+                flex-direction: column;
+                gap: 0;
+                height: 0;
+                overflow: hidden;
+                transition: var(--transition);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                height: auto;
+                padding: 20px 0;
+            }
+            
+            .nav-links a {
+                display: block;
+                padding: 15px 20px;
+                text-align: center;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
 </head>
 <body>
-
-    <!-- START HEADER AREA -->
-    <header class="header_area">
-        <div class="main-menu">
-            <nav class="navbar navbar-expand-lg">
-                <div class="container-fluid">
-                  <a class="navbar-brand" href="#"><img src="./images/new logo.png" alt="logo" height="85" width="85"></a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarNav">
-                    <div class="me-auto"></div> 
-                    <ul class="navbar-nav">
-                      <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#HOME">Home</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#ABOUT">About</a>
-                      </li>
-                      <!-- <li class="nav-item">
-                        <a class="nav-link" href="#SKILLS">Skills</a>
-                      </li> -->
-                      <li class="nav-item">
-                        <a class="nav-link" href="#CONTACT">Contact</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#PORTFOLIO">Portfolio</a>
-                      </li>
-                    </ul>
-                  </div>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">M<span style="color: var(--primary);">P</span></a>
+                <div class="nav-links">
+                    <a href="#home" class="active">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#projects">Portfolio</a>
+                    <a href="#contact">Contact</a>
                 </div>
-              </nav>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
         </div>
     </header>
-    <!-- END HEADER AREA-->
-    
-    <!-- START MAIN AREA -->
-    <main class="site-main">
-      <!-- START BANNER -->
-      <section class="site-banner">
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
         <div class="container">
-          <div class="row">
-            <div class="col-lg-6 col-md-12 site-title" id="HOME"> 
-              <h3 class="title-text">Hey!</h3>
-              <h1 class="text-uppercase">I'm Michael</h1>
-              <h4 class="text-uppercase">Graduate Computer Science Student</h4>
-              <div></div>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h4>Computer Science Graduate</h4>
+                    <h1>Hi, I'm Michael Paglia</h1>
+                    <p>Currently a senior data analyst and team lead at Meta whilst pursuing my Master's degree in Computer Science. Passionate about spatiotemporal data and signal processing.</p>
+                    <a href="Michael_Paglia_Resume.pdf" download class="cta-btn">Download Resume</a>
+                </div>
+                <div class="hero-image">
+                    <img src="images/HEADSHOT.jpg" alt="Michael Paglia" class="profile-img">
+                </div>
             </div>
-            <div class="d-flex col-lg-6 col-md-12 headshot-img">
-              <!-- RIGHT HAND SIDE IMAGE -->
-              <img src="/images/Rockefeller Center Headshot.jpg" alt="headshot-img" class="img-fluid">
-              <img src="/images/research-img.jpg" alt="headshot-img-2" class="img-fluid headshot-image">
-
-            </div>
-          </div>
         </div>
-      </section>
-      <!-- END BANNER -->
+    </section>
 
-      <!-- ABOUT ME AREA -->
-      <section class="about-area">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-lg-6 col-md-12">
-              <div class="about-image">
-                <img src="/images/picture with trees.jpg" alt="about me image" class="img-fluid">
-              </div>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
             </div>
-
-            <div class="col-lg-6 col-md-12 about-title" id="ABOUT">
-              <h2 class="text-uppercase">
-                A little bit about me
-              </h2>
-              <div class="paragraph.py-4.w-75">
-                <p class="para">
-                  I began my career in computer science in August 2021 at the University at Albany and graduated Summa Cum Laude with my Bachelor of Science degree in May 2024. Currently, I am employed as a Data Labeling Analyst at Meta, where I collaborate with vendors to improve data labeling accuracy as a subject matter expert. I plan to continue my education at the University at Albany for my Master of Science degree with an anticipated graduation date of May 2025. Most recently, I was a member of the Data Management and Mining Lab at my university and a grant recipient from the National Science Foundation for a research fellowship. My areas of interest in research included spatiotemporal data and signal processing. This past summer, I interned at Regeneron Pharmaceuticals, where I collaborated with the IT team on developing web applications for smart contract-based access.
-                <p class="para">
-                  Thank you for taking the time to visit my page! Feel free to contact me if you have any questions or would like to get in touch 😊
-                </p>
-              </div>
-              <div></div>
-              <!-- DOWNLOAD RESUME -->
-              <a href="Michael_Paglia_Resume.pdf" download="Michael Paglia Resume" class="center-button">
-              <button type="button" class="btn button primary-button text-uppercase">Download my resume (2024) </button></a>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- END ABOUT ME AREA -->
-
-      <!-- BRAND AREA -->
-      <section class="brand-area">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xl-6 col-lg-12 col-md-12">
-                    <div class="first-row row">
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="single-brand">
-                                <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/c-colored.svg" width="70" height="70" alt="C">
+            <div class="about-content">
+                <div class="about-text" style="flex: 1">
+                    <p>I began my career in computer science in August 2021 at the University at Albany and graduated Summa Cum Laude with my Bachelor of Science degree in May 2024.</p>
+                    <p>Currently, I am employed as a senior data analyst at Meta, where I operate as a team lead and subject matter expert, collaborating with vendors to improve data labeling accuracy. My work involves performing data analysis, implementing scraping techniques to analyze vendor data, and curating reports to drive quality improvement while serving as the quality lead for multiple agentic workstreams. I regularly meet with FAIR researchers to align on new guidelines and enhance project outcomes. I plan to continue my education at the University at Albany for my Master of Science degree with an anticipated graduation date of May 2025.</p>
+                    <p>Most recently, I was a member of the Data Management and Mining Lab at my university and a grant recipient from the National Science Foundation for a research fellowship. My areas of interest in research included spatiotemporal data and signal processing.</p>
+                    <div class="skills">
+                        <h3>Technical Skills</h3>
+                        <div class="skills-grid">
+                            <div class="skill-icon">
+                                <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/c-colored.svg" alt="C">
+                                <span>C</span>
                             </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="single-brand">
-                                <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/java-colored.svg" width="70" height="70" alt="Java">
+                            <div class="skill-icon">
+                                <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/java-colored.svg" alt="Java">
+                                <span>Java</span>
                             </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="single-brand">
-                                <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/python-colored.svg" width="70" height="70" alt="Python">
+                            <div class="skill-icon">
+                                <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/python-colored.svg" alt="Python">
+                                <span>Python</span>
                             </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="single-brand">
-                                <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/javascript-colored.svg" width="70" height="70" alt="JavaScript">
+                            <div class="skill-icon">
+                                <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/javascript-colored.svg" alt="JavaScript">
+                                <span>JavaScript</span>
                             </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="single-brand">
-                                <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/mysql-colored.svg" width="70" height="70" alt="MySQL">
+                            <div class="skill-icon">
+                                <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/mysql-colored.svg" alt="MySQL">
+                                <span>MySQL</span>
                             </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="single-brand">
-                                <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/go-colored.svg" width="70" height="70" alt="Go">
+                            <div class="skill-icon">
+                                <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/go-colored.svg" alt="Go">
+                                <span>Go</span>
                             </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="single-brand">
-                                <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/swift-colored.svg" width="70" height="70" alt="Swift">
+                            <div class="skill-icon">
+                                <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/aws-colored.svg" alt="AWS">
+                                <span>AWS</span>
                             </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="single-brand">
-                                <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/bootstrap-colored.svg" width="70" height="70" alt="Bootstrap">
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="single-brand">
-                                <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/photoshop-colored.svg" width="70" height="70" alt="Photoshop">
+                            <div class="skill-icon">
+                                <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/photoshop-colored.svg" alt="Photoshop">
+                                <span>Photoshop</span>
                             </div>
                         </div>
                     </div>
                 </div>
-            <div class="col-xl-6 col-lg-12 col-md-12">
-              <div class="experience-area" id="CONTACT">
-                <div class="d-flex flex-row years-area">
-                  <h2 class="p-3 years">3</h2>
-                  <h2>
-                    <span>Years</span>
-                    <span>Experience</span>
-                    <span>Studying C.S.</span> 
-                  </h2>
-                </div>
-                <div class="d-flex flex-row flex-wrap email-area">
-                  <span class="email-icon"><i class="fa-sharp fa-solid fa-envelope"></i></span>
-                  <div class="email-content">
-                    <a href="#" class="email-link">Email Me:</a>
-                    <span class="email-address">michaelpagliadev@gmail.com</span>
-                  </div>
-                </div>
-                <div class="bg-panel"></div>
-              </div>
             </div>
-          </div>
         </div>
-      </section>
-      <!-- END BRAND AREA -->
+    </section>
 
-      <!-- PROJECT AREA -->
-      <section class="project-area">
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
         <div class="container">
-          <div class="project-title-pb-5" id="PORTFOLIO">
-            <h1 class="text-uppercase title-h1">My Work 🖥️</h1>
-          </div>
-      
-          <div class="button-group">
-            <button type="button" data-filter="*" class="active" id="btn1">All</button>
-            <button type="button" data-filter=".latest">Latest</button>
-            <button type="button" data-filter=".academia">Academia</button>
-            <button type="button" data-filter=".personal">Personal</button>
-          </div>
-      
-          <div class="row">
-            <div class="col-12">
-              <ul class="list-group">
-                <li class="list-group-item academia">
-                  <h4 class="text-uppercase">Interpreter</h4>
-                  <p>This project involves creating an interpreter for a simple programming language, focusing on parsing and semantic analysis mechanics. Developed using Java.</p>
-                  <a href="https://github.com/michaelpaglia/interpreter-src" target="_blank">GitHub Repo</a>
-                  <span class="badge bg-secondary">Academia</span>
-                </li>
-                
-                <li class="list-group-item academia">
-                  <h4 class="text-uppercase">NYT Connections</h4>
-                  <p>A small Python script to attempt to solve New York Times' "Connections" game using Google's word2vec tool.</p>
-                  <a href="https://github.com/michaelpaglia/nyt-connections" target="_blank">GitHub Repo</a>
-                  <span class="badge bg-secondary">Personal</span>
-                </li>
-                
-                <li class="list-group-item personal">
-                  <h4 class="text-uppercase">Personal Website</h4>
-                  <p>A showcase of my portfolio and blog, developed using HTML, CSS, and JavaScript for a dynamic and responsive user experience.</p>
-                  <a href="https://github.com/michaelpaglia/portfolio-website" target="_blank">GitHub Repo</a>
-                  <span class="badge bg-secondary">Personal</span>
-                </li>
-                
-                <li class="list-group-item latest personal">
-                  <h4 class="text-uppercase">PySpady</h4>
-                  <p>A sparse dictionary encoding Python library developed as an extension of several machine learning research papers.</p>
-                  <a href="https://github.com/petkobogdanov/pyspady" target="_blank">GitHub Repo</a>
-                  <span class="badge bg-secondary">Latest</span>
-                  <span class="badge bg-secondary">Personal</span>
-                </li>
-                
-                <li class="list-group-item academia">
-                  <h4 class="text-uppercase">Operating System Simulator</h4>
-                  <p>Simulation of an operating system's functions including process scheduling, memory management, and file systems. Written in Java to illustrate core OS concepts.</p>
-                  <a href="https://github.com/michaelpaglia/os-sim" target="_blank">GitHub Repo</a>
-                  <span class="badge bg-secondary">Academia</span>
-                </li>
-              </ul>
+            <div class="section-title">
+                <h2>My Projects</h2>
             </div>
-          </div>
-        </div>
-      </section>
-    </main>
-    <!-- END MAIN AREA -->
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="latest">Latest</button>
+                <button class="filter-btn" data-filter="academia">Academia</button>
+                <button class="filter-btn" data-filter="personal">Personal</button>
+            </div>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card" data-category="academia">
+                    <div class="project-content">
+                        <h4>Interpreter</h4>
+                        <p>This project involves creating an interpreter for a simple programming language, focusing on parsing and semantic analysis mechanics.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/michaelpaglia/interpreter-src" target="_blank">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">Academia</span>
+                            <span class="project-tag">Java</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card" data-category="academia personal">
+                    <div class="project-content">
+                        <h4>NYT Connections</h4>
+                        <p>A small Python script to attempt to solve New York Times' "Connections" game using Google's word2vec tool.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/michaelpaglia/nyt-connections" target="_blank">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">Personal</span>
+                            <span class="project-tag">Python</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card" data-category="personal">
+                    <div class="project-content">
+                        <h4>Personal Website</h4>
+                        <p>A showcase of my portfolio and blog, developed using HTML, CSS, and JavaScript for a dynamic and responsive user experience.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/michaelpaglia/portfolio-website" target="_blank">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">Personal</span>
+                            <span class="project-tag">HTML/CSS</span>
+                            <span class="project-tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-card" data-category="latest personal">
+                    <div class="project-content">
+                        <h4>PySpady</h4>
+                        <p>A sparse dictionary encoding Python library developed as an extension of several machine learning research papers.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/petkobogdanov/pyspady" target="_blank">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">Latest</span>
+                            <span class="project-tag">Personal</span>
+                            <span class="project-tag">Python</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="project-card" data-category="academia">
+                    <div class="project-content">
+                        <h4>Operating System Simulator</h4>
+                        <p>Simulation of an operating system's functions including process scheduling, memory management, and file systems.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/michaelpaglia/os-sim" target="_blank">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">Academia</span>
+                            <span class="project-tag">Java</span>
+                        </div>
+                    </div>
+                </div>
 
-    <footer class="footer-area">
-      <div class="container">
-        <div class="">
-          <div class="site-logo text-center py-4">
-            <a href="#"><img src="/images/new logo.png" alt="logo" width="75px"></a>
-          </div>
-          <div class="social text-center">
-            <h4 class="text-uppercase">Follow me</h4>
-            <a href="https://www.facebook.com/michael.paglia.58"><l class="fab fa-facebook"></l></a>
-            <a href="https://www.instagram.com/mpagl1a/"><l class="fab fa-instagram"></l></a>
-            <a href="https://github.com/michaelpaglia/"><l class="fab fa-github"></l></a>
-            <a href="https://www.linkedin.com/in/michaeljpaglia/"><l class="fab fa-linkedin"></l></a>
-          </div>
-          <div class="copyrights text-center">
-            <p class="para">
-              Copyright 2024, Michael J. Paglia. All rights reserved.
-            </p>
-          </div>
+                <!-- Project 6 -->
+                <div class="project-card" data-category="latest personal">
+                  <div class="project-content">
+                      <h4>Premier League Match Prediction</h4>
+                      <p>Bayesian optimization techniques applied to Premier League teams and players to analyze and predict hypothetical match scenarios to take advantage of vigorish</p>
+                      <div class="project-links">
+                          <a href="https://github.com/michaelpaglia?tab=repositories" target="_blank">
+                              <i class="fab fa-github"></i> GitHub
+                          </a>
+                      </div>
+                      <div class="project-tags">
+                          <span class="project-tag">Latest</span>
+                          <span class="project-tag">Personal</span>
+                      </div>
+                  </div>
+              </div>
+
+            </div>
         </div>
-      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>michaelpagliadev@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Location</h4>
+                            <p>Troy, New York</p>
+                        </div>
+                    </div>
+                    <h3>Follow Me</h3>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/michaeljpaglia/" class="social-link" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/michaelpaglia/" class="social-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="footer-text">&copy; 2025 Michael Paglia. All rights reserved.</p>
+        </div>
     </footer>
 
-
-    <!-- JQuery JS file -->
-    <script src="./js_files/jquery.js"></script>
-    <!-- Bootstrap JS file -->
-    <script src="./js_files/bootstrap.min.js"></script>
-    <!-- Isotope JS library -->
-    <script src="/vendor/isotope/isotope.min.js"></script>
-    <!-- Magnific Popup Script File -->
-    <script src="vendor/Magnific-Popup-master/dist/jquery.magnific-popup.min.js"></script>
-    <!-- Custom JS file -->
-    <script src="/js_files/main.js"></script>
+    <!-- JavaScript -->
+    <script>
+        // Toggle menu for mobile 
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                document.querySelector('header').classList.add('scrolled');
+            } else {
+                document.querySelector('header').classList.remove('scrolled');
+            }
+        });
+        
+        // Project filtering
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Update active button
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Filter projects
+                const filter = this.getAttribute('data-filter');
+                document.querySelectorAll('.project-card').forEach(card => {
+                    if (filter === 'all') {
+                        card.style.display = 'block';
+                    } else {
+                        const categories = card.getAttribute('data-category').split(' ');
+                        if (categories.includes(filter)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (document.querySelector('.nav-links').classList.contains('active')) {
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
+        });
+        
+        // Project filtering
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Update active button
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Filter projects
+                const filter = this.getAttribute('data-filter');
+                document.querySelectorAll('.project-card').forEach(card => {
+                    if (filter === 'all') {
+                        card.style.display = 'block';
+                    } else {
+                        const categories = card.getAttribute('data-category').split(' ');
+                        if (categories.includes(filter)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (document.querySelector('.nav-links').classList.contains('active')) {
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
