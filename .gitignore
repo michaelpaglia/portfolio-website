@@ -1,0 +1,9 @@
+# Claude Code
+.claude/
+
+# Personal notes
+things_to_note.txt
+
+# OS files
+.DS_Store
+Thumbs.db
