@@ -631,6 +631,157 @@
             margin-bottom: 0;
         }
 
+        /* Timeline Group (for Meta) */
+        .timeline-group {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 50%;
+            position: relative;
+            margin-bottom: 24px;
+        }
+
+        .timeline-group:nth-child(even) {
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: 50%;
+        }
+
+        .timeline-group-container {
+            width: calc(100% - 30px);
+            position: relative;
+        }
+
+        .timeline-group:nth-child(odd) .timeline-group-container {
+            margin-right: 30px;
+        }
+
+        .timeline-group:nth-child(even) .timeline-group-container {
+            margin-left: 30px;
+        }
+
+        .timeline-group-header {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            padding: 20px 24px;
+            border-radius: 12px 12px 0 0;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-bottom: none;
+            opacity: 0.3;
+            transform: translateY(10px);
+            transition: opacity 0.5s ease, transform 0.5s ease, background 0.4s ease, border-color 0.4s ease;
+        }
+
+        .timeline-group-header.active {
+            opacity: 1;
+            transform: translateY(0);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .timeline-group-header .timeline-header {
+            margin-bottom: 0;
+        }
+
+        .timeline-group-header .group-tenure {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.75rem;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-style: italic;
+            margin-top: 4px;
+        }
+
+        .timeline-subitems {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-top: none;
+            border-radius: 0 0 12px 12px;
+            overflow: hidden;
+        }
+
+        .timeline-subitems.no-header {
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+        }
+
+        .timeline-subitems.no-header .timeline-subitem:first-child {
+            border-top: none;
+        }
+
+        .timeline-subitem {
+            padding: 18px 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            opacity: 0;
+            transform: translateY(15px);
+            transition: opacity 0.5s ease, transform 0.5s ease, background 0.3s ease;
+            position: relative;
+        }
+
+        .timeline-subitem.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-subitem:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .timeline-subitem .timeline-date {
+            font-size: 0.8rem;
+            margin-bottom: 6px;
+        }
+
+        .timeline-subitem h3 {
+            font-size: 0.95rem;
+            font-weight: 400;
+            margin-bottom: 2px;
+            color: white;
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        .timeline-subitem .timeline-header {
+            margin-bottom: 4px;
+        }
+
+        .timeline-subitem .timeline-header h3 {
+            margin-bottom: 0;
+        }
+
+        .timeline-subitem .timeline-logo {
+            max-width: 26px;
+            max-height: 22px;
+            margin-right: 10px;
+        }
+
+        .timeline-subitem h4 {
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.4);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .timeline-subitem p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.8rem;
+            line-height: 1.5;
+        }
+
+        .timeline-subitem-indicator {
+            position: absolute;
+            left: 0;
+            top: 18px;
+            bottom: 18px;
+            width: 2px;
+            background: linear-gradient(to bottom, rgba(255, 140, 50, 0.4), rgba(200, 100, 150, 0.3));
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .timeline-subitem.active .timeline-subitem-indicator {
+            opacity: 1;
+        }
+
         /* About Section - Dark with glacier */
         .about {
             background: #0f1419;
@@ -1470,42 +1621,41 @@
                     </div>
                 </div>
 
-                <!-- Human Data - Meta -->
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-date">Jul 2025 - Feb 2026</span>
-                        <div class="timeline-header">
-                            <img src="images/meta-logo.png" alt="Meta" class="timeline-logo">
-                            <h3>Human Data for Superintelligence</h3>
+                <!-- Meta Group -->
+                <div class="timeline-group">
+                    <div class="timeline-group-container">
+                        <div class="timeline-subitems no-header">
+                            <div class="timeline-subitem">
+                                <div class="timeline-subitem-indicator"></div>
+                                <span class="timeline-date">Jul 2025 - Feb 2026</span>
+                                <div class="timeline-header">
+                                    <img src="images/meta-logo.png" alt="Meta" class="timeline-logo">
+                                    <h3>Human Data for Superintelligence</h3>
+                                </div>
+                                <h4>TBD Lab, Meta Superintelligence</h4>
+                                <p>Shaped how frontier models learn from human feedback. Designed data collection strategies and posttraining pipelines in Meta's skunkworks for superintelligence.</p>
+                            </div>
+                            <div class="timeline-subitem">
+                                <div class="timeline-subitem-indicator"></div>
+                                <span class="timeline-date">Nov 2024 - Jul 2025</span>
+                                <div class="timeline-header">
+                                    <img src="images/meta-logo.png" alt="Meta" class="timeline-logo">
+                                    <h3>AI Agents</h3>
+                                </div>
+                                <h4>GenAI @ Meta</h4>
+                                <p>Data strategy for FAIR's agent research. Scaled evaluation pipelines and training environments for agentic AI systems.</p>
+                            </div>
+                            <div class="timeline-subitem">
+                                <div class="timeline-subitem-indicator"></div>
+                                <span class="timeline-date">May 2024 - Nov 2024</span>
+                                <div class="timeline-header">
+                                    <img src="images/meta-logo.png" alt="Meta" class="timeline-logo">
+                                    <h3>Data</h3>
+                                </div>
+                                <h4>GenAI @ Meta</h4>
+                                <p>Scaled code generation and AI safety data pipelines. Managed vendor relationships. Promoted to team lead within 6 months.</p>
+                            </div>
                         </div>
-                        <h4>TBD Lab, Meta Superintelligence</h4>
-                        <p>Strategic projects in human data collection and posttraining pipelines for next-gen AI.</p>
-                    </div>
-                </div>
-
-                <!-- AI Agents -->
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-date">Nov 2024 - Jul 2025</span>
-                        <div class="timeline-header">
-                            <img src="images/meta-logo.png" alt="Meta" class="timeline-logo">
-                            <h3>AI Agents</h3>
-                        </div>
-                        <h4>Meta</h4>
-                        <p>Led agentic AI workstreams with FAIR. Contributed to <a href="https://ai.meta.com/research/publications/are-scaling-up-agent-environments-and-evaluations/" target="_blank" style="color: rgba(255,255,255,0.8); text-decoration: underline;">open-source agent research</a>.</p>
-                    </div>
-                </div>
-
-                <!-- Data at Meta -->
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-date">May 2024 - Nov 2024</span>
-                        <div class="timeline-header">
-                            <img src="images/meta-logo.png" alt="Meta" class="timeline-logo">
-                            <h3>GenAI Data Lead</h3>
-                        </div>
-                        <h4>Meta</h4>
-                        <p>Data labeling improvements and vendor partnerships. Advanced to team lead.</p>
                     </div>
                 </div>
 
@@ -1515,10 +1665,20 @@
                         <span class="timeline-date">Mar 2025 - Feb 2026</span>
                         <div class="timeline-header">
                             <img src="images/amc-logo.jpg" alt="AMC" class="timeline-logo">
-                            <h3>Epigenetics & Bioinformatics</h3>
+                            <h3>Visiting Researcher</h3>
                         </div>
                         <h4>Ramos Bossardi Lab, Albany Medical College</h4>
-                        <p>Multiomics data analysis studying epigenetic modifications and endothelial dysfunction.</p>
+                        <p>Studying how blood vessels remember injury at the molecular level. Building computational pipelines for multi-omics data to uncover epigenetic mechanisms in endothelial dysfunction.</p>
+                    </div>
+                </div>
+
+                <!-- Stealth -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Sep 2016 - Jan 2026</span>
+                        <h3>Founder</h3>
+                        <h4>Stealth</h4>
+                        <p>Built automated systems for e-commerce arbitrage. Scaled to six figures by 16, funding my way through college. A decade of internet hustle.</p>
                     </div>
                 </div>
 
@@ -1528,27 +1688,40 @@
                         <span class="timeline-date">Mar 2025 - Jan 2026</span>
                         <div class="timeline-header">
                             <img src="images/518cares-logo.jpg" alt="518 Cares" class="timeline-logo">
-                            <h3>Founder, 518 Cares</h3>
+                            <h3>Founder</h3>
                         </div>
-                        <h4>Nonprofit Organization</h4>
-                        <p>Community support and social impact initiatives in the Capital Region. <a href="https://518cares.org" target="_blank" style="color: rgba(255,255,255,0.8); text-decoration: underline;">518cares.org</a></p>
+                        <h4>518 Cares</h4>
+                        <p>Started a nonprofit that served 50K+ people across New York's Capital Region. Paused operations after relocating. <a href="https://518cares.org" target="_blank" style="color: rgba(255,255,255,0.8); text-decoration: underline;">518cares.org</a></p>
+                    </div>
+                </div>
+
+                <!-- Bachelor's Degree -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Aug 2020 - May 2024</span>
+                        <div class="timeline-header">
+                            <img src="images/ualb-logo.jpg" alt="UAlbany" class="timeline-logo">
+                            <h3>B.S. Computer Science</h3>
+                        </div>
+                        <h4>University at Albany, SUNY</h4>
+                        <p>Summa Cum Laude. NSF research fellow, built open-source ML tools, and somehow still found time to run a business on the side.</p>
                     </div>
                 </div>
 
                 <!-- NSF Fellowship -->
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <span class="timeline-date">2023 - 2024</span>
+                        <span class="timeline-date">Jan 2024 - May 2024</span>
                         <div class="timeline-header">
                             <img src="images/nsf-logo.jpg" alt="NSF" class="timeline-logo">
-                            <h3>NSF Research Fellowship</h3>
+                            <h3>Research Fellow</h3>
                         </div>
                         <h4>Data Management and Mining Lab</h4>
-                        <p>Built PySpady, an open-source library for spatiotemporal tensor decomposition on large-scale datasets.</p>
+                        <p>NSF Grant #1831547. Developed <a href="https://github.com/petkobogdanov/pyspady" target="_blank" style="color: rgba(255,255,255,0.8); text-decoration: underline;">PySpady</a>, an open-source Python library implementing sparse dictionary encoding for spatiotemporal tensor decomposition. Applied to geospatial and time-series datasets at scale.</p>
                     </div>
                 </div>
 
-                <!-- Regeneron Internship -->
+                <!-- Regeneron -->
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <span class="timeline-date">May 2023 - Aug 2023</span>
@@ -1557,30 +1730,7 @@
                             <h3>Software Engineer</h3>
                         </div>
                         <h4>Regeneron Pharmaceuticals</h4>
-                        <p>Built internal tooling and secure access management systems serving 4K+ employees using Python, Flask, and Dremio Data Lake.</p>
-                    </div>
-                </div>
-
-                <!-- Bachelor's Degree -->
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-date">2020 - 2024</span>
-                        <div class="timeline-header">
-                            <img src="images/ualb-logo.jpg" alt="UAlbany" class="timeline-logo">
-                            <h3>Computer Science</h3>
-                        </div>
-                        <h4>University at Albany</h4>
-                        <p>B.S. in Computer Science, Summa Cum Laude.</p>
-                    </div>
-                </div>
-
-                <!-- E-commerce Business -->
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-date">2016 - 2026</span>
-                        <h3>Founder</h3>
-                        <h4>Stealth</h4>
-                        <p>Internet money and consulting. Hustled to pay my way through university and had lots of fun doing so.</p>
+                        <p>Built internal tools and access management systems used by 4K+ employees. Python, Flask, and enterprise data infrastructure.</p>
                     </div>
                 </div>
             </div>
@@ -1993,7 +2143,10 @@
                     // Timeline scroll unfolding
                     const timeline = document.querySelector('.timeline');
                     const timelineItems = document.querySelectorAll('.timeline-item');
-                    if (timeline && timelineItems.length > 0) {
+                    const timelineGroupHeaders = document.querySelectorAll('.timeline-group-header');
+                    const timelineSubitems = document.querySelectorAll('.timeline-subitem');
+
+                    if (timeline) {
                         const timelineRect = timeline.getBoundingClientRect();
                         const timelineStart = timelineRect.top + scrolled;
                         const timelineHeight = timelineRect.height;
@@ -2004,7 +2157,7 @@
 
                         timeline.style.setProperty('--timeline-progress', `${timelineProgress}%`);
 
-                        // Activate timeline items based on scroll position
+                        // Activate regular timeline items based on scroll position
                         timelineItems.forEach((item, index) => {
                             const itemRect = item.getBoundingClientRect();
                             const itemCenter = itemRect.top + itemRect.height / 2;
@@ -2014,6 +2167,32 @@
                                 item.classList.add('active');
                             } else {
                                 item.classList.remove('active');
+                            }
+                        });
+
+                        // Activate timeline group headers
+                        timelineGroupHeaders.forEach((header) => {
+                            const headerRect = header.getBoundingClientRect();
+                            const headerCenter = headerRect.top + headerRect.height / 2;
+                            const triggerPoint = windowHeight * 0.65;
+
+                            if (headerCenter < triggerPoint) {
+                                header.classList.add('active');
+                            } else {
+                                header.classList.remove('active');
+                            }
+                        });
+
+                        // Activate timeline subitems with staggered reveal
+                        timelineSubitems.forEach((subitem, index) => {
+                            const subitemRect = subitem.getBoundingClientRect();
+                            const subitemTop = subitemRect.top;
+                            const triggerPoint = windowHeight * 0.7;
+
+                            if (subitemTop < triggerPoint) {
+                                subitem.classList.add('active');
+                            } else {
+                                subitem.classList.remove('active');
                             }
                         });
                     }
