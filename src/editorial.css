@@ -163,6 +163,11 @@
 /* Real alpha transparency works without browser-specific compositing. */
 .work-section .endpaper-still-life{filter:none;mix-blend-mode:normal}
 
+/* Grain follows alpha silhouettes and automatically applies to every variant.
+   The wrapper preserves each chapter image's existing hover/light treatment. */
+.editorial-journey .story-miniature,
+.work-section .endpaper-still-life{filter:url(#sprite-paper-grain)}
+
 /* Circular viewport removes the generated planets’ square backdrop. */
 .editorial-journey .chapter-sprite[data-planet]:not([data-planet="earth"]){clip-path:circle(45% at 49% 49%)}
 
