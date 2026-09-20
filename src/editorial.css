@@ -1,7 +1,7 @@
 /* A continuous illustrated essay: the landscape owns most of the view. */
 .editorial-journey>.vignette{background:linear-gradient(90deg,rgba(16,25,24,.91) 0%,rgba(16,25,24,.79) 25%,rgba(16,25,24,.4) 43%,transparent 68%)}
 .editorial-journey .chapter{padding:38px 8% 44px}
-.editorial-journey .chapter-paper,.editorial-journey .chapter-paper:has(.chapter-sprite){width:min(440px,36vw);min-height:0;padding:0;background:none;border:0;border-radius:0;box-shadow:none;color:#f3efe5}
+.editorial-journey .chapter .chapter-paper{width:min(440px,36vw);min-height:0;padding:0;background:none;border:0;border-radius:0;box-shadow:none;color:#f3efe5}
 .editorial-journey .chapter-paper h2{font-size:clamp(32px,3.1vw,44px);line-height:1.14;letter-spacing:-1.1px;margin-bottom:24px;padding-right:0}
 .editorial-journey .chapter-meta{color:#c8cec5;gap:16px;margin-bottom:22px}
 .editorial-journey .chapter-paper .chapter-lead{font-size:17px;line-height:1.8;margin-bottom:20px}
@@ -23,7 +23,7 @@
 @media(max-width:700px){
  .editorial-journey>.vignette{background:linear-gradient(90deg,#101918eb 0%,#101918ce 48%,#10191870 100%)}
  .editorial-journey .chapter{padding:32px 8% 38px}
- .editorial-journey .chapter-paper,.editorial-journey .chapter-paper:has(.chapter-sprite){width:100%;padding:0}
+ .editorial-journey .chapter .chapter-paper{width:100%;padding:0}
  .editorial-journey .chapter-paper h2{font-size:34px}
  .editorial-journey .chapter-paper .chapter-lead{font-size:16px}
  .editorial-journey .chapter-paper[data-entry="Fleet AI"]{padding-top:26px}
@@ -160,8 +160,8 @@
  .work-section .endpaper-still-life{grid-column:2;grid-row:1;width:100px;height:66px}
 }
 
-/* White-backed painted variants blend into the cream paper without a frame. */
-.work-section .endpaper-still-life{filter:brightness(1.05);mix-blend-mode:multiply}
+/* Real alpha transparency works without browser-specific compositing. */
+.work-section .endpaper-still-life{filter:none;mix-blend-mode:normal}
 
 /* Circular viewport removes the generated planets’ square backdrop. */
 .editorial-journey .chapter-sprite[data-planet]:not([data-planet="earth"]){clip-path:circle(45% at 49% 49%)}
@@ -171,3 +171,10 @@
 
 .editorial-journey header{justify-content:flex-end;gap:24px}
 .editorial-journey header .writing-link{margin:0}
+
+/* Explicit heading color also supports browsers without :has() selectors. */
+.editorial-journey .chapter-paper h2{color:#f3efe5}
+@media(max-width:700px){
+ .editorial-journey #new-york{background:linear-gradient(180deg,transparent,#101918a8 12%,#101918a8 85%,transparent)}
+ .editorial-journey #new-york h2{color:#fff8ec;text-shadow:0 1px 3px #10191866}
+}

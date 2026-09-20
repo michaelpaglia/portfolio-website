@@ -56,7 +56,7 @@ community.querySelector('summary').innerHTML='<svg aria-hidden="true" viewBox="0
 $('.work-inner').append(personal);personal.append($('.reading-shelf'),community);
 // One shared endpaper illustration gives the personal sections a common setting.
 personal.querySelectorAll('summary > svg').forEach(icon=>icon.remove());
-$('.work-title').insertAdjacentHTML('beforeend','<img class="endpaper-still-life" src="/art/endpaper-cat-black-v1.png" alt="" width="1536" height="1024" decoding="async">');
+$('.work-title').insertAdjacentHTML('beforeend','<img class="endpaper-still-life" src="/art/endpaper-cat-black-v2.png" alt="" width="1536" height="1024" decoding="async">');
 
 const updateFooterCat=mountFooterCats($('.endpaper-still-life'));
 const planetSection=$('#san-francisco');
