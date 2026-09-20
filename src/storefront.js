@@ -9,6 +9,7 @@ import {mountReadingShelf} from './reading-shelf.js';
 import {readingList} from './reading-list.js';
 import {mountFooterCats} from './footer-cats.js';
 import {mountVisitSprite} from './visit-sprite.js';
+import {mountPaintingTexture} from './painting-texture.js';
 
 const $=s=>document.querySelector(s),reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const chapter=(e)=>`<article class="chapter-paper" data-entry="${e.name}"><div class="chapter-meta"><span>${e.name}${e.name==='Meta'?' · New York':e.name==='Mercor'?' · San Francisco':''}</span><span>${e.dates}</span></div><h2>${e.heading}</h2><p class="chapter-lead">${e.body}</p><img class="chapter-sprite" src="${e.painting}" alt="" width="80" height="88" loading="lazy" decoding="async">${e.facts.length>1?`<details class="career-details"><summary>Work at ${e.name}</summary><p>${e.detail}</p><dl class="chapter-facts">${e.facts.map(([date,text],i)=>`<div><dt>${date}</dt><dd>${text}${e.relatedProjects?.[i]?`<a class="fact-project" href="${e.relatedProjects[i][1]}">Background: ${e.relatedProjects[i][0]} ↗</a>`:''}</dd></div>`).join('')}</dl></details>`:''}</article>`;
@@ -76,6 +77,7 @@ const updateShoe=mountVisitSprite(shoeSection.querySelector('.chapter-sprite'),[
 // horizontal position; crossings overlap the departing and arriving cards.
 const groups=[sf,ny,troy],positions=[0,50,100];
 const panorama=document.createElement('img');panorama.className='connected-painting';panorama.src='/art/grand-journey-v1.png';panorama.alt='';panorama.decoding='async';$('#world').append(panorama);
+mountPaintingTexture($('#world'));
 let current=0,lastScroll=scrollY,lastTime=performance.now(),paintedWidth=0;
 function sizePainting(){paintedWidth=Math.max(innerWidth,innerHeight*3);panorama.style.width=`${paintedWidth}px`;panorama.style.height=`${Math.max(innerHeight,innerWidth/3)}px`;}
 sizePainting();addEventListener('resize',sizePainting);
