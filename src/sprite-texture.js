@@ -11,7 +11,7 @@ export function mountSpriteTexture() {
       <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="23" stitchTiles="stitch" result="noise"/>
       <feColorMatrix in="noise" type="saturate" values="0" result="mono"/>
       <feComponentTransfer in="mono" result="faint-grain">
-        <feFuncA type="linear" slope=".32"/>
+        <feFuncA type="linear" slope=".55"/>
       </feComponentTransfer>
       <feBlend in="SourceGraphic" in2="faint-grain" mode="soft-light" result="printed"/>
       <feComposite in="printed" in2="SourceAlpha" operator="in"/>
