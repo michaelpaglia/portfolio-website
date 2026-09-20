@@ -21,7 +21,6 @@
 .editorial-journey .intro-copy{font-size:16px;max-width:380px}
 .editorial-journey .work-section{position:relative}
 @media(max-width:700px){
- .editorial-journey>.vignette{background:linear-gradient(90deg,#101918eb 0%,#101918ce 48%,#10191870 100%)}
  .editorial-journey .chapter{padding:32px 8% 38px}
  .editorial-journey .chapter .chapter-paper{width:100%;padding:0}
  .editorial-journey .chapter-paper h2{font-size:34px}
@@ -35,8 +34,9 @@
 .editorial-journey .chapter-paper .chapter-sprite{width:44px;height:44px;margin:0 0 8px 16px}
 .editorial-journey .career-details summary .chapter-sprite{float:none;margin:0 0 0 auto;width:36px;height:36px}
 @media(max-width:700px){
- .editorial-journey>.vignette{background:#10191826}
- .editorial-journey .chapter,.editorial-journey .opening{background:linear-gradient(180deg,transparent,#101918d1 12%,#101918d1 85%,transparent)}
+ .editorial-journey>.vignette{background:none}
+ .editorial-journey .chapter,.editorial-journey .opening{background:linear-gradient(180deg,transparent,rgba(16,25,24,.28) 12%,rgba(16,25,24,.28) 85%,transparent)}
+ .editorial-journey .opening h1,.editorial-journey .chapter-paper{text-shadow:0 1px 3px #08110fee,0 0 12px #08110f55}
 }
 
 .editorial-journey .rl-roles{clear:both;padding-top:18px;margin-top:12px}
@@ -175,6 +175,5 @@
 /* Explicit heading color also supports browsers without :has() selectors. */
 .editorial-journey .chapter-paper h2{color:#f3efe5}
 @media(max-width:700px){
- .editorial-journey #new-york{background:linear-gradient(180deg,transparent,#101918a8 12%,#101918a8 85%,transparent)}
- .editorial-journey #new-york h2{color:#fff8ec;text-shadow:0 1px 3px #10191866}
+ .editorial-journey .chapter-paper h2{color:#fff8ec}
 }
