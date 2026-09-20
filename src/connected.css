@@ -5,8 +5,8 @@
 /* Print surface belongs only to the landscape, beneath every text/UI layer. */
 .connected-journey #world{isolation:isolate}
 .painting-texture{position:absolute;inset:0;pointer-events:none;background-repeat:repeat;mix-blend-mode:soft-light}
-.painting-texture--screen{opacity:.32;image-rendering:pixelated}
-.painting-texture--grain{opacity:.25}
+.painting-texture--screen{opacity:.72;image-rendering:pixelated}
+.painting-texture--grain{opacity:.42}
 .connected-journey .place-group{padding-bottom:clamp(64px,10svh,110px)}
 .connected-journey .chapter{padding-top:34px;padding-bottom:40px}
 .connected-journey .place-group:last-of-type{padding-bottom:48px}

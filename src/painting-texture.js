@@ -25,7 +25,7 @@ export function mountPaintingTexture(world) {
   // mechanical regularity. Neutral-centered values avoid another dark veil.
   const bayer = [[0, 8, 2, 10], [12, 4, 14, 6], [3, 11, 1, 9], [15, 7, 13, 5]];
   const textures = [
-    ['screen', 4, tile(4, (x, y) => Math.round((bayer[y][x] + .5) * 16))],
+    ['screen', 6, tile(4, (x, y) => Math.round((bayer[y][x] + .5) * 16))],
     ['grain', 128, tile(256, () => Math.round(random() * 255))],
   ];
   for (const [name, size, source] of textures) {
