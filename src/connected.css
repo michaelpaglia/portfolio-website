@@ -1,0 +1,8 @@
+/* Shared art restores continuity; the reading order and sprite layout stay. */
+.connected-journey #world{display:block;overflow:hidden;background:#414c3e}
+.connected-journey>.vignette{display:block}
+.connected-painting{position:absolute;left:0;top:0;display:block;max-width:none;object-fit:fill;will-change:transform}
+.connected-journey .place-group{padding-bottom:clamp(64px,10svh,110px)}
+.connected-journey .chapter{padding-top:34px;padding-bottom:40px}
+.connected-journey .place-group:last-of-type{padding-bottom:48px}
+@media(max-width:700px){.connected-journey .place-group{padding-bottom:64px}.connected-journey .chapter{padding-top:25px;padding-bottom:30px}}

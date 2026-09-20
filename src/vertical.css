@@ -1,0 +1,19 @@
+/* The reading direction and the movement of the page are now the same. */
+.vertical-journey #world,.vertical-journey>.vignette{display:none}
+.vertical-journey .place-group{position:relative;isolation:isolate}
+.vertical-journey .place-backdrop{position:sticky;top:0;height:100svh;margin-bottom:-100svh;z-index:-1;background-image:linear-gradient(90deg,#14221d88,transparent 72%),url('/art/three-cities-panorama-v1.png');background-size:auto 100%;background-repeat:no-repeat;background-color:#414c3e;pointer-events:none}
+.vertical-journey .opening{min-height:66svh;padding:100px 8% 40px}
+.vertical-journey .opening h1{font-size:clamp(76px,9vw,124px)}
+.vertical-journey .chapter{padding-top:22px;padding-bottom:24px}
+.vertical-journey .place-label{padding:35px 7% 4px;color:#f0eadb;font-size:14px;text-shadow:0 1px 7px #14221f}
+.vertical-journey .place-group{padding-bottom:36px}
+.vertical-journey .chapter-paper:has(.chapter-sprite){padding-bottom:82px}
+.vertical-journey .chapter-paper[data-entry="Meta"] h2{padding-right:58px}
+.vertical-journey .chapter-paper[data-entry="Meta"] .chapter-sprite{top:75px;bottom:auto;right:15px;width:68px;height:76px}
+.vertical-journey .chapter-paper[data-entry="Fleet AI"] .chapter-sprite{left:28px;right:auto;bottom:12px;width:84px}
+.vertical-journey .chapter-paper[data-entry="Mercor"] .chapter-sprite{width:88px;height:78px}
+.vertical-journey .writing-link{margin-left:auto;margin-right:24px;font-size:12px}
+@media(min-aspect-ratio:3/1){.vertical-journey .place-backdrop{background-size:cover}}
+@media(max-width:700px){.vertical-journey .opening{min-height:60svh;padding:100px 8% 25px}.vertical-journey .opening h1{font-size:78px}.vertical-journey .place-label{padding:24px 6% 0}.vertical-journey .place-group{padding-bottom:18px}.vertical-journey .chapter{padding-top:16px;padding-bottom:16px}.vertical-journey .writing-link{margin-right:14px}.vertical-journey header{padding:0 16px}.vertical-journey .chapter-paper[data-entry="Fleet AI"] .chapter-sprite{left:20px}}
+
+.vertical-journey header{background:#e8e4d7;color:#34443f}

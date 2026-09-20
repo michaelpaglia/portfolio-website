@@ -1,0 +1,173 @@
+/* A continuous illustrated essay: the landscape owns most of the view. */
+.editorial-journey>.vignette{background:linear-gradient(90deg,rgba(16,25,24,.91) 0%,rgba(16,25,24,.79) 25%,rgba(16,25,24,.4) 43%,transparent 68%)}
+.editorial-journey .chapter{padding:38px 8% 44px}
+.editorial-journey .chapter-paper,.editorial-journey .chapter-paper:has(.chapter-sprite){width:min(440px,36vw);min-height:0;padding:0;background:none;border:0;border-radius:0;box-shadow:none;color:#f3efe5}
+.editorial-journey .chapter-paper h2{font-size:clamp(32px,3.1vw,44px);line-height:1.14;letter-spacing:-1.1px;margin-bottom:24px;padding-right:0}
+.editorial-journey .chapter-meta{color:#c8cec5;gap:16px;margin-bottom:22px}
+.editorial-journey .chapter-paper .chapter-lead{font-size:17px;line-height:1.8;margin-bottom:20px}
+.editorial-journey .chapter-paper .chapter-sprite{position:static;float:right;width:62px;height:62px;margin:0 0 10px 18px;object-fit:contain}
+.editorial-journey .chapter-paper::after{content:'';display:block;clear:both}
+.editorial-journey .chapter-paper[data-entry="Fleet AI"]{padding-top:28px;border-top:1px solid #c8cec53d}
+.editorial-journey .chapter-paper[data-entry="Fleet AI"] h2{font-size:26px;letter-spacing:-.6px}
+.editorial-journey #fleet{padding-top:0}
+.editorial-journey .career-details{margin-top:20px}
+.editorial-journey .career-details summary{color:#d5dccf}
+.editorial-journey .chapter-facts>div{border-color:#c8cec53d}
+.editorial-journey .chapter-facts dt{color:#b9c6b6}
+.editorial-journey .chapter-facts dd{color:#eeeade}
+.editorial-journey .place-group{padding-bottom:clamp(90px,16svh,170px)}
+.editorial-journey .place-group:last-of-type{padding-bottom:80px}
+.editorial-journey .opening{min-height:67svh}
+.editorial-journey .intro-copy{font-size:16px;max-width:380px}
+.editorial-journey .work-section{position:relative}
+@media(max-width:700px){
+ .editorial-journey>.vignette{background:linear-gradient(90deg,#101918eb 0%,#101918ce 48%,#10191870 100%)}
+ .editorial-journey .chapter{padding:32px 8% 38px}
+ .editorial-journey .chapter-paper,.editorial-journey .chapter-paper:has(.chapter-sprite){width:100%;padding:0}
+ .editorial-journey .chapter-paper h2{font-size:34px}
+ .editorial-journey .chapter-paper .chapter-lead{font-size:16px}
+ .editorial-journey .chapter-paper[data-entry="Fleet AI"]{padding-top:26px}
+ .editorial-journey .place-group{padding-bottom:20svh}
+ .editorial-journey .opening{min-height:64svh}
+ .editorial-journey .chapter-paper .chapter-sprite{width:52px;height:52px}
+}
+
+.editorial-journey .chapter-paper .chapter-sprite{width:44px;height:44px;margin:0 0 8px 16px}
+.editorial-journey .career-details summary .chapter-sprite{float:none;margin:0 0 0 auto;width:36px;height:36px}
+@media(max-width:700px){
+ .editorial-journey>.vignette{background:#10191826}
+ .editorial-journey .chapter,.editorial-journey .opening{background:linear-gradient(180deg,transparent,#101918d1 12%,#101918d1 85%,transparent)}
+}
+
+.editorial-journey .rl-roles{clear:both;padding-top:18px;margin-top:12px}
+.editorial-journey .rl-roles>p{font-size:13px;color:#d5dccf;margin:0 0 10px}
+.rl-roles ul{list-style:none;padding:0;margin:0}
+.rl-roles li{display:flex;align-items:baseline;justify-content:space-between;gap:18px;padding:11px 0;border-top:1px solid #c8cec53d;scroll-margin-top:100px}
+.rl-roles li span{font-size:16px}
+.rl-roles time{font-size:12px;color:#c8cec5;text-align:right}
+
+.work-section .community-details{margin-top:8px}
+.work-section .community-details summary{display:flex;justify-content:flex-start;padding:12px 0;min-height:44px;font-size:13px;color:#52644f}
+.work-section .community-details p{max-width:510px;font-size:14px;line-height:1.7;margin:0 0 12px}
+.work-section .community-details a{text-decoration:underline;text-underline-offset:3px}
+.work-section .community-details .community-status{font-size:12px;color:#697563}
+
+/* Miniatures rest beside their story, rather than floating beside body copy. */
+.editorial-journey .story-miniature{position:relative;display:inline-flex;align-items:center;justify-content:center;flex:0 0 64px;width:64px;height:64px;isolation:isolate}
+.editorial-journey .story-miniature::after{content:'';position:absolute;bottom:5px;left:12px;right:12px;height:4px;border-radius:50%;background:#080d0c80;filter:blur(3px);z-index:-1}
+.editorial-journey .chapter-paper .story-miniature .chapter-sprite{position:static;float:none;width:60px;height:60px;margin:0;object-fit:contain;filter:brightness(.85);transition:filter .5s ease}
+.editorial-journey .career-details summary{display:flex;align-items:center;gap:12px;min-height:64px}
+.editorial-journey .career-details summary::before{order:2;margin-left:auto}
+.editorial-journey .career-details summary:hover .chapter-sprite,
+.editorial-journey .career-details summary:focus-visible .chapter-sprite,
+.editorial-journey .career-details[open] .chapter-sprite{filter:brightness(1.18) saturate(1.08)}
+.editorial-journey .rl-roles>p{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.editorial-journey .story-miniature.is-seen .chapter-sprite{animation:miniature-light 1.4s ease-out}
+@keyframes miniature-light{0%{filter:brightness(.65)}55%{filter:brightness(1.25)}100%{filter:brightness(.85)}}
+@media(prefers-reduced-motion:reduce){
+ .editorial-journey .story-miniature.is-seen .chapter-sprite{animation:none;transition:none}
+}
+
+.editorial-journey .fact-project{display:block;width:fit-content;margin-top:7px;text-decoration:underline;text-underline-offset:3px;color:#d5dccf;font-size:13px}
+.work-section .personal-disclosures{display:grid;grid-template-columns:1fr 1fr;gap:0 28px;border-top:1px solid #bcc1b1;margin-top:20px;align-items:start}
+.work-section .personal-disclosures>details{border:0;margin:0}
+.work-section .personal-disclosures summary{display:flex;justify-content:flex-start;align-items:center;gap:12px;min-height:60px;padding:12px 0;font-size:13px;color:#52644f}
+.work-section .personal-disclosures summary svg{width:28px;height:28px;flex:0 0 28px;margin:0}
+.work-section .personal-disclosures summary::after{margin-left:auto}
+@media(max-width:700px){.work-section .personal-disclosures{grid-template-columns:1fr;gap:0}.work-section .personal-disclosures>details+details{border-top:1px solid #bcc1b1}}
+
+/* Let the painting reach the top edge; navigation sits within its shadows. */
+.editorial-journey header{height:76px;padding:0 8%;color:#f3efe5;background:linear-gradient(180deg,#101918c9,#10191870 70%,transparent);transition:background .25s,color .25s;isolation:isolate}
+.editorial-journey header #home{font-size:14px;font-weight:500;letter-spacing:-.35px}
+.editorial-journey header .writing-link,.editorial-journey header .work-anchor{font-size:12px;color:inherit}
+.editorial-journey header a{text-decoration:none;text-underline-offset:6px;text-decoration-thickness:1px}
+.editorial-journey header a:hover{text-decoration:underline}
+.editorial-journey.scrolled header{background:#16211fe8;color:#f3efe5;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.editorial-journey.at-work header{background:#eae6daf5;color:#34443f}
+.editorial-journey header a:focus-visible{outline-color:currentColor}
+@media(max-width:700px){.editorial-journey header{height:70px;padding:0 6%;gap:12px}.editorial-journey header #home{font-size:13px}.editorial-journey header .writing-link{margin-right:0}.editorial-journey header .writing-link,.editorial-journey header .work-anchor{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.editorial-journey header{transition:none}}
+
+.work-section .personal-disclosures summary .footer-miniature{width:54px;height:58px;flex:0 0 54px;overflow:hidden;filter:brightness(.94);transition:filter .4s ease}
+.work-section .personal-disclosures summary{min-height:78px}
+.work-section .personal-disclosures summary:hover .footer-miniature,
+.work-section .personal-disclosures summary:focus-visible .footer-miniature,
+.work-section .personal-disclosures details[open] .footer-miniature{filter:brightness(1.06) saturate(1.08)}
+@media(prefers-reduced-motion:reduce){.work-section .personal-disclosures summary .footer-miniature{transition:none}}
+
+/* Bookmarks reveal personal marginal notes without crowding the reading list. */
+.personal-disclosures .shelf-content{padding-left:0}
+.personal-disclosures .shelf-content ul{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 22px}
+.personal-disclosures .shelf-content li{position:relative;padding:8px 0;font-size:14px}
+.book-bookmark{display:flex;align-items:center;gap:7px;min-height:44px;padding:6px 0;font-size:11px;color:#59694f}
+.book-bookmark svg{width:12px;height:18px}
+.book-bookmark:hover,.book-bookmark[aria-expanded="true"]{color:#34443f}
+.book-bookmark[aria-expanded="true"] svg{fill:#63735226}
+.personal-disclosures .book-note{max-width:42ch;font-size:14px;line-height:1.75;color:#465348;margin:0 0 12px;padding:0 0 0 18px;border-left:1px solid #9ba58e}
+.book-note[hidden]{display:none}
+
+
+.work-section .personal-disclosures summary img.footer-miniature{object-fit:contain}
+.contact-links{display:flex;align-items:center;flex-wrap:wrap;gap:12px 24px}
+.contact-links a{display:inline-flex;align-items:center;min-height:44px}
+@media(max-width:700px){.personal-disclosures .shelf-content ul{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 18px}.work-title .contact-links a{margin-top:0}.contact-links{gap:4px 20px;margin-top:8px}}
+
+/* Bookmark controls belong to the title; opening either footer keeps its column. */
+.book-title{display:flex;align-items:flex-start;gap:6px}
+.book-title>span,.book-title>a{min-width:0}
+.book-title .book-bookmark{display:inline-flex;align-items:center;justify-content:center;flex:0 0 24px;width:24px;min-height:24px;padding:2px;margin-top:-1px}
+.book-title .book-bookmark svg{width:12px;height:18px}
+.personal-disclosures .book-note{margin-top:12px}
+
+
+
+/* Footer disclosures keep their columns; a selected note reads across its shelf. */
+.work-section .work-title{justify-content:flex-start;gap:18px 36px;flex-wrap:wrap}
+.work-section .contact-links a:first-child{font-size:17px}
+.work-section .contact-links a:last-child{font-size:13px;color:#657160}
+.personal-disclosures .bookmark-hint{font-size:11px;color:#697563;line-height:1.5;margin:0 0 12px}
+.book-title .book-bookmark{flex-basis:32px;width:32px;min-height:36px;margin-top:-6px;margin-bottom:-6px}
+.personal-disclosures .shelf-notes .book-note{max-width:none;margin:18px 0 8px;padding:0 0 0 16px}
+.shelf-notes .book-note h4{font-size:11px;font-weight:500;color:#697563;line-height:1.5;margin:0 0 8px}
+.shelf-notes .book-note p{font-size:14px;line-height:1.75;margin:0}
+.editorial-journey .later-research a{text-decoration:underline;text-underline-offset:3px}
+@media(min-width:701px) and (max-width:1000px){.work-section .personal-disclosures{grid-template-columns:1fr;gap:0}.work-section .personal-disclosures>details+details{border-top:1px solid #bcc1b1}}
+@media(max-width:700px){.work-section .work-title{display:block}.work-section .contact-links a:first-child{font-size:16px}}
+
+.editorial-journey .chapter-lead .decorative-miniature{float:right;margin:0 0 8px 14px;width:54px;height:54px}
+.editorial-journey .chapter-lead .decorative-miniature .chapter-sprite{width:50px;height:50px;filter:none;animation:none;transition:none}
+.shelf-notes .book-note{scroll-margin-top:92px;scroll-margin-bottom:20px}
+@media(max-width:700px){.editorial-journey header .writing-link,.editorial-journey header .work-anchor{font-size:12px}}
+
+/* Align painted silhouettes rather than their unequal transparent canvases. */
+.work-section .personal-disclosures summary .footer-miniature{transform:none}
+.work-section .personal-disclosures summary::after{margin-left:2px;font-size:16px;color:#52644f}
+.work-section .personal-disclosures summary:hover>span{color:#34443f;text-decoration:underline;text-underline-offset:4px}
+
+/* Keep the still life in the contact band; disclosures have full reading width. */
+.work-section .work-title{display:grid;grid-template-columns:auto 1fr 150px;align-items:center;gap:16px 32px;margin-bottom:12px}
+.work-section .personal-disclosures{margin:0;gap:0 32px;min-height:0}
+.work-section .personal-disclosures summary{min-height:56px;padding:16px 0;gap:10px;font-size:14px}
+.work-section .endpaper-still-life{display:block;width:150px;height:100px;object-fit:contain;pointer-events:none}
+@media(max-width:1000px){
+ .work-section .work-title{grid-template-columns:auto 1fr 120px;column-gap:20px}
+ .work-section .endpaper-still-life{width:120px;height:80px}
+}
+@media(max-width:700px){
+ .work-section .work-title{grid-template-columns:1fr 100px;gap:0 12px;margin-bottom:16px}
+ .work-section .work-title h2{grid-column:1;grid-row:1}
+ .work-section .contact-links{grid-column:1 / -1;grid-row:2;margin-top:0}
+ .work-section .endpaper-still-life{grid-column:2;grid-row:1;width:100px;height:66px}
+}
+
+/* White-backed painted variants blend into the cream paper without a frame. */
+.work-section .endpaper-still-life{filter:brightness(1.05);mix-blend-mode:multiply}
+
+/* Circular viewport removes the generated planets’ square backdrop. */
+.editorial-journey .chapter-sprite[data-planet]:not([data-planet="earth"]){clip-path:circle(45% at 49% 49%)}
+
+/* Reuse the matching shoe silhouette to mask the red variant’s backdrop. */
+.editorial-journey .chapter-sprite[data-shoe="red"]{mask-image:url("/art/cards/early-object-v1.png");mask-size:contain;mask-position:center;mask-repeat:no-repeat}
+
+.editorial-journey header{justify-content:flex-end;gap:24px}
+.editorial-journey header .writing-link{margin:0}

@@ -1,9 +1,5 @@
-# Claude Code
-.claude/
-
-# Personal notes
-things_to_note.txt
-
-# OS files
+node_modules/
+dist/
+test-results/
+playwright-report/
 .DS_Store
-Thumbs.db
