@@ -12,7 +12,6 @@ import {mountVisitSprite} from './visit-sprite.js';
 import {mountPaintingTexture} from './painting-texture.js';
 import {mountPaperTexture} from './paper-texture.js';
 import {mountSpriteTexture} from './sprite-texture.js';
-import {mountHeadingTexture} from './heading-texture.js';
 
 const $=s=>document.querySelector(s),reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const chapter=(e)=>`<article class="chapter-paper" data-entry="${e.name}"><div class="chapter-meta"><span>${e.name}${e.name==='Meta'?' · New York':e.name==='Mercor'?' · San Francisco':''}</span><span>${e.dates}</span></div><h2>${e.heading}</h2><p class="chapter-lead">${e.body}</p><img class="chapter-sprite" src="${e.painting}" alt="" width="80" height="88" loading="lazy" decoding="async">${e.facts.length>1?`<details class="career-details"><summary>Work at ${e.name}</summary><p>${e.detail}</p><dl class="chapter-facts">${e.facts.map(([date,text],i)=>`<div><dt>${date}</dt><dd>${text}${e.relatedProjects?.[i]?`<a class="fact-project" href="${e.relatedProjects[i][1]}">Background: ${e.relatedProjects[i][0]} ↗</a>`:''}</dd></div>`).join('')}</dl></details>`:''}</article>`;
@@ -21,7 +20,6 @@ document.body.classList.add('vertical-journey','connected-journey','editorial-jo
 const opening=$('.opening'),early=$('#early-work'),work=$('#work');
 mountPaperTexture(work);
 mountSpriteTexture();
-mountHeadingTexture();
 const group=(city)=>{const el=document.createElement('div');el.className='place-group';el.dataset.city=city;return el;};
 const sf=group('San Francisco',100),ny=group('New York',44),troy=group('Capital District',0);
 sf.append(opening);sf.insertAdjacentHTML('beforeend',`<section id="san-francisco" class="chapter"><article class="chapter-paper" data-entry="RL"><div class="chapter-meta"><span>Mercor · San Francisco</span><span>2026–present</span></div><h2>${rlChapter.heading}</h2><p class="chapter-lead">${rlChapter.body}</p><img class="chapter-sprite" src="/art/cards/rl-globe-v1.png" alt="" width="80" height="88" loading="lazy" decoding="async"><div class="rl-roles"><p>${rlChapter.role}</p><ul>${rlChapter.roles.map(e=>`<li id="${e.name==='Fleet AI'?'fleet':'mercor'}"><span>${e.name}</span><time>${e.dates}</time></li>`).join('')}</ul></div></article></section>`);

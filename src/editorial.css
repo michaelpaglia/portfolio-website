@@ -179,18 +179,6 @@
 
 /* Explicit heading color also supports browsers without :has() selectors. */
 .editorial-journey .chapter-paper h2{color:#f3efe5}
-/* Ink wear stays still within real text, with a lighter touch on small titles. */
-.editorial-journey .opening h1{
- -webkit-mask-image:var(--name-ink,none);mask-image:var(--name-ink,none);
- -webkit-mask-size:256px 256px;mask-size:256px 256px;
-}
-.editorial-journey .chapter-paper h2,.work-section .work-title h2{
- -webkit-mask-image:var(--heading-ink,none);mask-image:var(--heading-ink,none);
- -webkit-mask-size:256px 256px;mask-size:256px 256px;
-}
-@media(forced-colors:active){
- .editorial-journey .opening h1,.editorial-journey .chapter-paper h2,.work-section .work-title h2{-webkit-mask-image:none;mask-image:none}
-}
 @media(max-width:700px){
  .editorial-journey .chapter-paper h2{color:#fff8ec}
 }
